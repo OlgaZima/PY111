@@ -12,7 +12,7 @@ def check_brackets(brackets_row: str) -> bool:
 
     stack_ = 0
     for i in range(len(brackets_row)):
-        if brackets_row[0] == ")":
+        if stack_ == 0 and brackets_row[i] == ")":
             return False
             break
         elif brackets_row[i] == "(":
@@ -28,3 +28,4 @@ def check_brackets(brackets_row: str) -> bool:
 if __name__ == '__main__':
     print(check_brackets("()()"))  # True
     print(check_brackets(")("))  # False
+    print(check_brackets("((()))(")) # False
