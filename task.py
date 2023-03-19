@@ -13,7 +13,7 @@ def stairway_path(graph: nx.DiGraph) -> Union[float, int]:
     """
     # TODO c помощью функции из модуля networkx найти стоимость кратчайшего пути до последней лестницы
 
-    return nx.shortest_path_lenght(graph, source=0, target=len(graph) - 1, weight='weight')
+    return nx.shortest_path_length(graph, source=0, target=len(graph) - 1, weight='weight')
 
 if __name__ == '__main__':
     stairway = (5, 11, 43, 2, 23, 43, 22, 12, 6, 8)
