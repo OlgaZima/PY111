@@ -1,0 +1,32 @@
+from typing import Union, Sequence
+
+
+def stairway_path(stairway: Sequence[Union[float, int]]) -> Union[float, int]:
+    """
+    Рассчитайте минимальную стоимость подъема на верхнюю ступень,
+    если мальчик умеет наступать на следующую ступень и перешагивать через одну.
+
+    :param stairway: список целых чисел, где каждое целое число является стоимостью конкретной ступени
+    :return: минимальная стоимость подъема на верхнюю ступень
+    """
+    <placeholder>...  # TODO реализовать прямой метод расчета</placeholder>
+
+    if len(stairway) == 1:
+        return stairway[0]
+    if len(stairway) == 2:
+        return stairway[1] #+ stairway[0]
+    price_1 = stairway[0]
+    price_2 = stairway[1]
+
+    for i in range(2, len(stairway)):
+        # price_1, price_2 = price_2, min(price_2, price_1) + stairway[i]
+        price = min(price_2, price_1) + stairway[i]
+        price_1 = price_2
+        price_2 = price
+
+    return price_2
+
+
+
+if __name__ == '__main__':
+    print(stairway_path([1, 3, 1, 5]))  # 7
